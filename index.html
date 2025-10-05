@@ -6,6 +6,7 @@
     <title>Home Page</title>
      <link rel="icon" href="favicon-32x32.png"><!--change the href to parfait or something-->
     <link rel="stylesheet" href="home.css">
+    <script src="https://kit.fontawesome.com/25c990c666.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -20,7 +21,11 @@
             <a href="Cart.html" >
             <img class="picture" src="shopping-cart.png" alt="Shopping Cart" style="height:24px;"></a>   
         </ul>
-        
+
+        <button class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars"></i>
+</button>
+
     </nav>
     <p class="welcome">Ray's Kitchen</p>
     <p id="para"><i>....where you taste buds meet delight</i></p>
@@ -273,6 +278,12 @@ We are a dedicated vendor bringing you wholesome treats and refreshing delights 
             window.scrollTo({ top:0, behavior: 'smooth' });
         });
 
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.querySelector('.navhome');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
 
   </script>
 </body>

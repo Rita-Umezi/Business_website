@@ -187,3 +187,46 @@ footer {
     width: 100%;
   }
 }
+
+/* Hide hamburger on large screens */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+/* Mobile menu hidden by default */
+.navhome {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navhome {
+    display: none;  /* hide links on small screen */
+    flex-direction: column;
+    background-color: orangered;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .navhome.show {
+    display: flex;  /* show when active */
+  }
+}
+
