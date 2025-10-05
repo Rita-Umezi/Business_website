@@ -1,200 +1,207 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.navhome{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+body {
+  background-color: antiquewhite;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.navbar{
-gap:60px;  
-position: relative;
+nav {
+  background-color: orangered;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
-.picture{
-  position: absolute;
-  top: 15px;
-  right: 20px;
-}
-
-
-nav{
-    background-color: orangered;
-    height: 70px;
-}
-
-body{
-    background-color: antiquewhite;
-}
-
-a{
-    text-decoration: none;
-    color: white;
-    margin-top: 20px;
-}
-
-footer{
-    text-align: center;
-    padding: 5px;
-    background: #222;
-    color: white;
-    font-size: small;
-    margin-top: 50px;
-}
-
-html{
-    scroll-behavior: smooth;
-}
-
-#backToTop{
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: chocolate;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    display: none;/*hides at first*/ 
-}
-
-#backToTop:hover{
-    background-color: #555;
-}
-
-#head{
-    text-align: center;
-    margin-top: 100px;
-    font-family: "Brush Script MT", cursive;
-    font-size: 100px;
-}
-
-#parfait{
-    border: 1px solid black;
-    box-shadow: 5px 5px #555;
-    max-width: 100%;
-    height: 400px;
-    margin: 30px;
-    border-radius: 20px;
-    padding: 30px;
-}
-
-#bananabread {
-    border: 1px solid black;
-    box-shadow: 5px 5px #555;
-    max-width: 100%;
-    height: 400px;
-    margin: 30px;
-    border-radius: 20px;
-    padding: 30px;
-}
-
-#granola {
-    border: 1px solid black;
-    box-shadow: 5px 5px #555;
-    max-width: 100%;
-    height: 400px;
-    margin: 30px;
-    border-radius: 20px;
-    padding: 30px;
-}
-
-#salad{
-    border: 1px solid black;
-    box-shadow: 5px 5px #555;
-    max-width: 100%;
-    height: 400px;
-    margin: 30px;
-    border-radius: 20px;
-     padding: 30px;
-}
-
-#sweet{
-    border: 1px solid black;
-    box-shadow: 5px 5px #555;
-    max-width: 100%;
-    height: 400px;
-    margin: 30px;
-    border-radius: 20px;
-     padding: 30px;
-}
-
-#unsweet{
-    border: 1px solid black;
-    box-shadow: 5px 5px #555;
-    max-width: 100%;
-    height: 400px;
-    margin: 30px;
-    border-radius: 20px;
-     padding: 30px;
-}
-
-#drink{
-    border: 1px solid black;
-    box-shadow: 5px 5px #555;
-    max-width: 100%;
-    height: 400px;
-    margin: 30px;
-    border-radius: 20px;
-     padding: 30px;
-}
-
-
-#benefits > div {
+.navhome {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  gap: 30px;
+  list-style: none;
 }
 
-#benefits img {
-  width: 120px; /* Adjust size as needed */
-  margin-right: 20px;
+a {
+  text-decoration: none;
+  color: white;
 }
 
-#benefits p {
-  flex: 1;
-}
-
-#benefits{
-    margin-bottom: 100px;
-}
-
-#after{
-    text-align: center;
-}
-#search{
-    padding: 8px 12px;
-    width: 200px;
-    border: 1px solid #555;
-    border-radius: 10px;
-}
-
-#search::placeholder {
-  font-style: italic;
-}
-#searchBtn{
-    border: none;
-    border-radius: 10px;
-    width: 80px;
-    height: 30px;
+.picture {
+  height: 24px;
 }
 
 #searchdiv {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-left: 830px;
-  position: relative;
-  bottom: 25px;
-  gap: 5px; /* space between input and button */
-   /* remove extra space if any */
+  gap: 5px;
 }
-p{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+
+#search {
+  padding: 8px 12px;
+  width: 200px;
+  border: 1px solid #555;
+  border-radius: 10px;
+}
+
+#search::placeholder {
+  font-style: italic;
+}
+
+#searchBtn {
+  border: none;
+  border-radius: 10px;
+  width: 80px;
+  height: 30px;
+  background: white;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 5px;
+  background: #222;
+  color: white;
+  font-size: small;
+  margin-top: 50px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: chocolate;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  display: none; /* hides at first */
+}
+
+#backToTop:hover {
+  background-color: #555;
+}
+
+#head {
+  text-align: center;
+  margin-top: 100px;
+  font-family: "Brush Script MT", cursive;
+  font-size: clamp(2rem, 8vw, 100px); /* scales on screen size */
+}
+
+#after {
+  text-align: center;
+  margin: 10px 20px;
+}
+
+/* Benefits section */
+#benefits {
+  margin: 30px 20px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#benefits > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  border: 1px solid black;
+  box-shadow: 5px 5px #555;
+  border-radius: 20px;
+  padding: 20px;
+  background: white;
+}
+
+#benefits img {
+  width: 150px;
+  height: 160px;
+  border-radius: 12px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+#benefits p {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Hamburger button */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  #search {
+    width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navhome {
+    display: none;
+    flex-direction: column;
+    background: orangered;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .navhome.show {
+    display: flex;
+  }
+
+  #searchdiv {
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  #benefits > div {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #benefits img {
+    margin: 0 auto 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #search {
+    width: 120px;
+  }
+
+  #searchBtn {
+    width: 60px;
+  }
+
+  #head {
+    font-size: 2rem;
+    margin-top: 60px;
+  }
+
+  #benefits p {
+    font-size: 0.9rem;
+  }
 }
