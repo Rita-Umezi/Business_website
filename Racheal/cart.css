@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navhome{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navbar{
+    gap:60px;
+    position: relative;
+}
+
+
+.picture{
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+
+nav{
+    background-color: orangered;
+    height: 70px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    margin-top: 20px;
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+footer{
+    text-align: center;
+    padding: 5px;
+    background: #222;
+    color: white;
+    font-size: small;
+    margin-top: 50px;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.remove{
+    background-color: chocolate;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-left: 40px;
+}
+
+#clear-cart{
+    background-color: chocolate;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-left: 40px;
+}
+
+#back{
+    color: black;
+    text-decoration: underline;
+}
