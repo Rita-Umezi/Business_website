@@ -61,6 +61,7 @@ background-color: antiquewhite;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* flexible columns */
   gap: 20px;
   padding: 20px;
+  justify-content: center;
 }
 
 .product {
@@ -230,3 +231,8 @@ footer {
   }
 }
 
+.other{
+  text-align: center;
+  margin: 30px 20px;
+  align-items: center;
+}
