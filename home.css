@@ -1,213 +1,189 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+    font-family: Arial, sans-serif;
+
 }
 
-.navhome{
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+/* Navbar */
+.navbar {
+  background-color: orangered;
+  padding: 10px 20px;
+}
+body{
+background-color: antiquewhite;
+}
+.navhome {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;   /* so links wrap on small screens */
+  gap: 20px;
+  list-style: none;
 }
 
-.navbar{
-    gap:60px;
-    position: relative;
+.navhome a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 
-
-.picture{
+.picture {
   position: absolute;
   top: 15px;
   right: 20px;
+  height: 24px;
 }
 
-
-nav{
-    background-color: orangered;
-    height: 70px;
+/* Welcome section */
+.welcome {
+  text-align: center;
+  margin: 80px 10px 0;
+  font-family: "Brush Script MT", cursive;
+  font-size: clamp(2.5rem, 6vw, 100px); /* resizes with screen */
 }
 
-a{
-    text-decoration: none;
-    color: white;
-    margin-top: 20px;
+#para {
+  text-align: center;
+  font-size: 1rem;
+  margin: 10px 0 20px;
 }
 
-
-
-.welcome{
-    text-align: center;
-    margin-top: 100px;
-    margin-bottom: 0;
-    font-family: "Brush Script MT", cursive;
-    font-size: 100px;
+#para2 {
+  text-align: center;
+  margin: 40px 0 20px;
 }
 
-body{
-    background-color: antiquewhite;
+/* Product grid */
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* flexible columns */
+  gap: 20px;
+  padding: 20px;
 }
 
-#para{   
-   text-align: center;
-   font-size: small;
-   margin-bottom: 20px;
+.product {
+  border: 1px solid black;
+  border-radius: 12px;
+  box-shadow: 3px 3px hsl(0, 0%, 20%);
+  padding: 20px;
+  text-align: center;
+  background: white;
 }
 
-.product{
-    border: 1px solid black;
-    border-radius: 12px;
-    max-width: fit-content;
-    width: 25%;
-    height: 310px;
-    box-shadow: 5px 5px hsl(0, 0%, 20%);
-    display: inline-block;
-    margin: 50px;
-    padding: 50px;
-    
-}
-footer{
-    text-align: center;
-    padding: 5px;
-    background: #222;
-    color: white;
-    font-size: small;
-    margin-top: 50px;
+/* Product images */
+.product img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
-#para2{
-    text-align: center;
-    margin-top: 50px;
+/* Buttons */
+.add {
+  border: none;
+  color: white;
+  background-color: chocolate;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-top: 15px;
+  cursor: pointer;
 }
+
+.add:hover {
+  background-color: #b35a00;
+}
+
+/* Back to top button */
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: chocolate;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  display: none;
+}
+
+#backToTop:hover {
+  background-color: #555;
+}
+
+/* Sections */
+.under,
 .about {
-    text-align: center;
+  text-align: center;
+  margin: 30px 20px;
 }
 
-#aboutus{
-    margin-top: 30px;
-    text-align: center;
+#contact {
+  margin: 30px 20px;
+  padding: 20px;
 }
 
-#about_para{
-    text-align: center;
+#btn {
+  border: none;
+  color: white;
+  background-color: brown;
+  border-radius: 10px;
+  width: 160px;
+  height: 45px;
+  position: fixed;
+  top: 80px;
+  right: 20px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #222;
+  color: white;
+  font-size: 0.8rem;
+  margin-top: 50px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .welcome {
+    font-size: 2.5rem;
     margin-top: 50px;
+  }
+
+  #btn {
+    position: static;
+    display: block;
+    margin: 20px auto;
+  }
+
+  .picture {
+    position: static;
+    display: block;
+    margin: 10px auto 0;
+  }
 }
 
-html{
-    scroll-behavior: smooth;
-}
+@media (max-width: 480px) {
+  .navhome {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 
-#backToTop{
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: chocolate;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    display: none;/*hides at first*/ 
-}
+  .product {
+    padding: 15px;
+  }
 
-#backToTop:hover{
-    background-color: #555;
-}
+  .product img {
+    width: 80px;
+    height: 80px;
+  }
 
-.under{
-    text-align: center;
-    margin-top: 40px;
-}
-
-#mail{
-    color:black;
-}
-
-#contact{
-    margin-left: 20px;
-    margin-top: 40px;
-    padding: 20px;
-}
-
-#contactus{
-    margin-bottom: 20px;
-}
-
-#btn{
-    border: none;
-    color: white;
-    background-color: brown;
-    border-radius: 10px;
-    width: 150px;
-    height: 40px;
-    position: fixed;
-    top: 80px;
-    right: 40px;
-}
-
-.add{
-     border: none;
-    color: black;
-    background-color: chocolate;
-    border-radius: 10px;
-    max-width: fit-content;
-    height: 40px;
-    margin-top: 60px;
-}
-
-.banana{
-    width: 89px;
-    height: 89px;
-    border-radius: 10px;
-}
-
-.parfait{
-    width: 89px;
-    height: 89px;
-    border-radius: 10px;
-}
-
-.drink{
-     width: 89px;
-    height: 89px;
-    border-radius: 10px;
-}
-
-.unsweet{
-     width: 89px;
-    height: 89px;
-    border-radius: 10px;
-}
-
-.sweet{
-     width: 89px;
-    height: 89px;
-    border-radius: 10px;
-}
-
-.Salad{
-     width: 89px;
-    height: 89px;
-    border-radius: 10px;
-}
-
-.granola{
-    width: 89px;
-    height: 89px;
-    border-radius: 10px;
-}
-
-.food{
-     width: 89px;
-    height: 89px;
-    border-radius: 10px;
-}
-.diffuser{
-     width: 89px;
-    height: 89px;
-    border-radius: 10px;
-}
-
-p{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  .add {
+    width: 100%;
+  }
 }
