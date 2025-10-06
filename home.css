@@ -236,3 +236,7 @@ footer {
   margin: 30px 20px;
   align-items: center;
 }
+
+html{
+  scroll-behavior: smooth;
+}
