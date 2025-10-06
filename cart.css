@@ -1,96 +1,156 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+html {
+scroll-behavior: smooth;
 }
 
-.navhome{
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+body {
+background-color: antiquewhite;
+font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.navbar{
-    gap:60px;
-    position: relative;
+/* ---------- NAVBAR ---------- */
+nav {
+background-color: orangered;
+height: 70px;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+padding: 0 20px;
 }
 
-
-.picture{
-  position: absolute;
-  top: 15px;
-  right: 20px;
+.navhome {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 30px;
+flex-wrap: wrap;
 }
 
-
-nav{
-    background-color: orangered;
-    height: 70px;
+.navbar {
+display: flex;
+align-items: center;
+gap: 60px;
 }
 
-a{
-    text-decoration: none;
-    color: white;
-    margin-top: 20px;
+a {
+text-decoration: none;
+color: white;
+font-weight: 500;
+transition: color 0.3s;
 }
 
-body{
-    background-color: antiquewhite;
+a:hover {
+color: #ffe4b5;
 }
 
-footer{
-    text-align: center;
-    padding: 5px;
-    background: #222;
-    color: white;
-    font-size: small;
-    margin-top: 50px;
-}
-html{
-    scroll-behavior: smooth;
+.picture {
+position: absolute;
+top: 15px;
+right: 20px;
+width: 40px;
+height: 40px;
 }
 
-p{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+footer {
+text-align: center;
+padding: 10px;
+background: #222;
+color: white;
+font-size: small;
+margin-top: 50px;
 }
 
-.remove{
-    background-color: chocolate;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-left: 40px;
-}
-
-#clear-cart{
-    background-color: chocolate;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-left: 40px;
-}
-
-#back{
-    color: black;
-    text-decoration: underline;
+/* ---------- BUTTONS ---------- */
+.remove,
+#clear-cart,
+#payButton {
+background-color: chocolate;
+color: white;
+padding: 10px 15px;
+border: none;
+border-radius: 7px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+margin: 10px;
+font-size: 16px;
 }
 
 #payButton {
-  background-color: #08a45c;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
-  margin: 35px;
+background-color: #08a45c;
 }
 
 #payButton:hover {
-  background-color: #066b41;
+background-color: #066b41;
+}
+
+.remove:hover,
+#clear-cart:hover {
+background-color: #b55400;
+}
+
+#back {
+color: black;
+text-decoration: underline;
+}
+
+/* ---------- RESPONSIVENESS ---------- */
+@media (max-width: 768px) {
+nav {
+height: auto;
+flex-direction: column;
+padding: 10px 0;
+}
+
+.navbar {
+flex-direction: column;
+gap: 15px;
+}
+
+.picture {
+position: static;
+margin-top: 10px;
+}
+
+a {
+font-size: 16px;
+}
+
+#payButton,
+#clear-cart,
+.remove {
+width: 80%;
+font-size: 15px;
+}
+}
+
+@media (max-width: 480px) {
+nav {
+padding: 15px;
+}
+
+.navbar {
+gap: 10px;
+}
+
+a {
+font-size: 14px;
+}
+
+#payButton,
+#clear-cart,
+.remove {
+width: 100%;
+font-size: 14px;
+padding: 12px;
+}
+
+footer {
+font-size: 12px;
+}
 }
