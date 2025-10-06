@@ -151,7 +151,7 @@ html {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .hamburger {
     display: block;
   }
@@ -204,4 +204,8 @@ html {
   #benefits p {
     font-size: 0.9rem;
   }
+}
+
+html{
+  scroll-behavior: smooth;
 }
