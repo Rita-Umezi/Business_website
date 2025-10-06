@@ -78,3 +78,19 @@ p{
     color: black;
     text-decoration: underline;
 }
+
+#payButton {
+  background-color: #08a45c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin: 35px;
+}
+
+#payButton:hover {
+  background-color: #066b41;
+}
