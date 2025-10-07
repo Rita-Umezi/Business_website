@@ -21,7 +21,7 @@
 <body>
   <nav class="navbar">
     <ul class="navhome">
-      <a href="Home.html">Home</a>
+      <a href="index.html">Home</a>
       <a href="index.html#about_para">About</a>
       <a href="index.html#contact">Contact</a>
       <a href="index.html#option">Products</a>
@@ -32,22 +32,38 @@
       </a>   
     </ul>
   </nav>
-   
-  <h1 style="margin: 50px 0 0 50px;">Your Cart</h1>
+  <div class="everything">
+    
+  <h1>Your Cart</h1>
   <div id="cart-items"></div>
-  <p style="margin: 100px 0 0 50px;">
+  <p>
     <strong>Total:</strong> ₦<span id="total">0</span>
   </p>
-  
-  <p>
+
+  <div class="buttons">
     <button id="clear-cart">Clear Cart</button>
     <a href="index.html" id="back">Back to Products</a>
-  </p>
-
-  <!-- ✅ Paystack button -->
+    <!--  Paystack button -->
   <button id="payButton">Pay Now</button>
+  </div>
 
+  </div>
+
+  <footer>&copy;2025 Ray's Kitchen Ltd. All rights reserved.</footer>
   <script>
+ const hamburger = document.createElement("button");
+  hamburger.innerHTML = "☰";
+  hamburger.classList.add("hamburger");
+
+  const navbar = document.querySelector(".navbar");
+  navbar.insertBefore(hamburger, navbar.firstChild);
+
+  const navMenu = document.querySelector(".navhome");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
+
     document.addEventListener('DOMContentLoaded', () => {
       const itemsDiv = document.getElementById('cart-items');
       const totalEl = document.getElementById('total');
@@ -73,7 +89,7 @@
         const cart = getCart();
         itemsDiv.innerHTML = '';
         if (cart.length === 0) {
-          itemsDiv.innerHTML = '<p style="margin-left: 50px;">Your cart is empty.</p>';
+          itemsDiv.innerHTML = '<p>Your cart is empty.</p>';
           totalEl.textContent = '0';
           return;
         }

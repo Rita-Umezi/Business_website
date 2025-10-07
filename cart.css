@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
 html {
@@ -10,20 +11,17 @@ scroll-behavior: smooth;
 
 body {
 background-color: antiquewhite;
-font-family: Georgia, 'Times New Roman', Times, serif;
-line-height: 1.5;
-padding: 0 15px;
 }
 
-/* ---------- NAVBAR ---------- */
+/* ---------- NAVIGATION ---------- */
 nav {
 background-color: orangered;
 height: 70px;
 display: flex;
-align-items: center;
 justify-content: center;
-position: relative;
+align-items: center;
 padding: 0 20px;
+position: relative;
 }
 
 .navhome {
@@ -60,22 +58,39 @@ height: 35px;
 object-fit: contain;
 }
 
-/* ---------- CART ---------- */
+/* ---------- PAGE CONTENT ---------- */
+.everything {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+min-height: 80vh;
+text-align: center;
+padding: 20px;
+}
+
+h1 {
+margin-bottom: 15px;
+font-size: 2rem;
+color: #333;
+}
+
 #cart-items {
 display: flex;
 flex-direction: column;
-gap: 15px;
-margin: 20px 0;
+gap: 12px;
+width: 100%;
+max-width: 500px;
 }
 
 .cart-item {
+background: white;
+padding: 12px 15px;
+border-radius: 8px;
 display: flex;
 justify-content: space-between;
 align-items: center;
-background: white;
-padding: 10px 15px;
-border-radius: 10px;
-box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cart-item span {
@@ -84,6 +99,14 @@ color: #333;
 }
 
 /* ---------- BUTTONS ---------- */
+.buttons {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 15px;
+margin-top: 25px;
+}
+
 .remove,
 #clear-cart,
 #payButton {
@@ -95,6 +118,7 @@ border-radius: 7px;
 cursor: pointer;
 transition: background-color 0.3s ease;
 font-size: 16px;
+width: 200px;
 }
 
 .remove:hover,
@@ -104,9 +128,6 @@ background-color: #b55400;
 
 #payButton {
 background-color: #08a45c;
-padding: 12px 25px;
-border-radius: 8px;
-margin-top: 25px;
 }
 
 #payButton:hover {
@@ -114,8 +135,18 @@ background-color: #066b41;
 }
 
 #back {
-color: black;
-text-decoration: underline;
+color: white;
+background-color: chocolate;
+border-radius: 4px;
+padding: 9px 10px;
+text-decoration: none;
+display: inline-block;
+width: 200px;
+text-align: center;
+}
+
+#back:hover {
+background-color: #b55400;
 }
 
 /* ---------- FOOTER ---------- */
@@ -130,20 +161,35 @@ margin-top: 50px;
 
 /* ---------- RESPONSIVENESS ---------- */
 @media (max-width: 768px) {
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+/* Mobile menu hidden by default */
+.navhome {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+
 nav {
 flex-direction: column;
 height: auto;
 padding: 15px;
 }
 
-.navbar {
-flex-direction: column;
-gap: 15px;
-}
-
 .navhome {
 flex-direction: column;
-gap: 10px;
+gap: 15px;
 }
 
 .picture {
@@ -151,24 +197,23 @@ position: static;
 margin-top: 10px;
 }
 
-#cart-items {
-width: 100%;
+.everything {
+padding: 10px;
 }
 
 .cart-item {
 flex-direction: column;
 align-items: flex-start;
-gap: 8px;
+gap: 10px;
 }
 
-#payButton,
-#clear-cart,
-.remove {
-width: 100%;
+#cart-items {
+max-width: 90%;
 }
 
-a {
-font-size: 16px;
+.buttons button,
+#back {
+width: 90%;
 }
 }
 
@@ -177,23 +222,23 @@ a {
 font-size: 14px;
 }
 
+h1 {
+font-size: 1.5rem;
+}
+
 .cart-item span {
 font-size: 14px;
 }
 
-#payButton,
+.remove,
 #clear-cart,
-.remove {
+#payButton,
+#back {
 font-size: 14px;
-padding: 12px;
+padding: 10px;
 }
 
 footer {
 font-size: 12px;
-}
-
-.picture {
-width: 30px;
-height: 30px;
 }
 }
