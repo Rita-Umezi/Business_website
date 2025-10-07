@@ -108,6 +108,7 @@ html {
   display: flex;
   flex-direction: column;
   gap: 20px;
+ 
 }
 
 #benefits > div {
@@ -119,6 +120,8 @@ html {
   border-radius: 20px;
   padding: 20px;
   background: white;
+  text-align: justify;
+  align-items: center;
 }
 
 #benefits img {
@@ -132,6 +135,7 @@ html {
 #benefits p {
   flex: 1;
   min-width: 250px;
+  
 }
 
 /* Hamburger button */
