@@ -229,7 +229,6 @@ footer {
   .navhome.show {
     display: flex;  /* show when active */
   }
-}
 
 .other{
   text-align: center;
@@ -239,4 +238,5 @@ footer {
 
 html{
   scroll-behavior: smooth;
+}
 }
