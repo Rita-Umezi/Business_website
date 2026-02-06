@@ -3,132 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Health page.css">
-    <link rel="icon" href="favicon-32x32.png"><!--change the href to parfait or something-->
-    <title>Health Page</title>
+    <title>Health & Nutrition | Ray's Kitchen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/25c990c666.js" crossorigin="anonymous"></script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
+        .health-card:nth-child(even) { flex-direction: row-reverse; }
+    </style>
 </head>
-<body>
-     <nav class="navbar">
-        <ul class="navhome">
-        <a href="index.html">Home</a>
-            <a href="index.html#about_para">About</a>
-            <a href="index.html#contact">Contact</a>
-            <a href="index.html#option">Products</a>
-            <a href="cart.html">Cart</a>
-            <a href="Health page.html">Health Page</a>
-           
-            <!--instead of using image, use font awsome to  get cart image-->
-            <a href="cart.html">
-            <img class="picture" src="./shopping-cart.png" alt="Shopping Cart" style="height:24px;"></a>   
-        </ul>
-        
+<body class="bg-[#fcfaf7] text-slate-800">
+
+    <nav class="fixed w-full z-50 glass border-b border-emerald-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="serif text-2xl font-bold text-emerald-700">Ray's Kitchen</div>
+            <ul class="hidden md:flex space-x-8 font-semibold text-sm uppercase tracking-widest text-emerald-900">
+                <li><a href="index.html" class="hover:text-emerald-500 transition">Home</a></li>
+                <li><a href="index.html#option" class="hover:text-emerald-500 transition">Menu</a></li>
+                <li><a href="Health page.html" class="text-emerald-600 border-b-2 border-emerald-600">Health Page</a></li>
+                <li><a href="cart.html" class="hover:text-emerald-500 transition"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            </ul>
+        </div>
     </nav>
-   
-<p id="head">Benefits</p>
-<p id="after"><i>check the nutritional value of our menu...</i></p>
- <!--Below is the code for each div-->
-    <div id="benefits">
-        <div id="parfait">
-            <img alt="Parfait" src="Screenshot 2025-10-05 080954.png" style="width: 150px; height: 160px;">
-            <p><b>Parfait:</b> Yogurt, fresh fruits (like berries, bananas, or mangoes), granola or nuts, honey or maple syrup (optional), chia seeds or flaxseeds (optional).
-                Parfaits offer benefits like improved digestion, thanks to yogurt's probiotics and fruits' fiber
-                , and weight management by promoting fullness with protein and fiber. They also provide nutrients like
-                 vitamins, minerals, and antioxidants from fruits, support bone and muscle health through yogurt's calcium and protein, 
-                 and offer a quick energy boost from natural fruit sugars.  
-            </p>
-         </div>
 
-         <div id="bananabread">
-             <img alt="banana bread" src="banana bread.jpg" style="width: 150px; height: 160px;">
-           <p>
-           <b>Banana bread </b> offers benefits like a good source of fiber, potassium, and vitamin B6 for digestive and
-            heart health, along with a natural energy boost from carbohydrates and sugars. 
-            It can also include ingredients like nuts for healthy fats and tryptophan for mood improvement. While not always a low-calorie treat, its nutritional content can be enhanced with whole grains, healthy fats, and less sugar, making it a nourishing snack. 
+    <header class="pt-32 pb-16 bg-emerald-50/50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="text-emerald-600 font-bold uppercase tracking-widest text-sm">Nutritional Value</span>
+            <h1 class="serif text-5xl md:text-6xl mt-4 mb-6 italic text-emerald-900">Fuel Your Body Right</h1>
+            <p class="text-lg text-slate-600 leading-relaxed">At Ray's Kitchen, we believe that food is medicine. Explore the science-backed benefits of our carefully curated ingredients.</p>
+        </div>
+    </header>
 
-           </p> 
-         </div>
-          <div id="granola">
-             <img alt="granola" src="granola2.png" style="width: 150px; height: 160px;">
-           <p>
-            <b>Granola</b> offers benefits like improved heart and gut health from its high fiber content, sustained energy and weight management through fiber and protein, and a boost of essential vitamins and minerals. The healthy fats from nuts and seeds, along with antioxidants from ingredients like dried fruits and nuts, further support overall well-being by reducing inflammation and providing essential nutrients.  
-Digestive Health & Gut Health
-High in Fiber: The oats, nuts, and seeds in granola are rich in fiber, which aids digestion, promotes regular bowel movements, and helps prevent constipation. 
-Gut Bacteria: Fiber also acts as a prebiotic, feeding beneficial gut bacteria and improving the gut microbiome. 
- 
-           </p> 
-         </div>
+    <main class="max-w-6xl mx-auto px-6 py-20 space-y-24">
 
-          <div id="salad">
-             <img alt="Chicken salad" src="chicken salad.jpg" style="width: 150px; height: 160px;">
-             <p>
-                <b>Chicken salad</b> provides high-quality protein for muscle and bone health, promotes feelings of fullness for appetite and weight management, 
-                and can be nutrient-rich with added vegetables and healthy fats like nuts. Customizing recipes with lean proteins and fresh produce 
-                makes it a versatile and convenient meal that supports various dietary needs, though calorie content varies significantly based on ingredients 
-                like mayonnaise and serving size. 
-             </p>
-          </div>
-
-           <div id="sweet">
-             <img alt="sweetend yogurt" src="sweetend yogurt.jpg" style="width: 150px; height: 160px;">
-             <p>
-                <b>Sweet yogurt </b> benefits are numerous, stemming from its high protein and calcium content, which support bone
-                and muscle health, and its probiotics, which promote a healthy digestive system and boost the immune system.
-                Yogurt also contains important B vitamins, phosphorus, and potassium, contributing to heart health and overall well-being.
-                 Eating yogurt can help you feel full, aiding in weight management and providing essential nutrients for various bodily functions. 
-             </p>
-           </div>
-
-            <div id="unsweet">
-                 <img alt="unsweetend yogurt" src="sweetend yogurt.jpg" style="width: 150px; height: 160px;">
-                 <p>
-        <b>Unsweetened Yogurt</b> offers numerous health benefits due to its rich content of beneficial bacteria (probiotics), 
-        protein, calcium, and various vitamins and minerals. These benefits include improved digestive health, enhanced immunity, stronger bones, and support for weight management, appetite regulation, and heart health.
-       
-                 </p>
+        <section class="health-card flex flex-col md:flex-row items-center gap-12 group">
+            <div class="w-full md:w-1/2 overflow-hidden rounded-3xl shadow-xl">
+                <img src="Screenshot 2025-10-05 080954.png" alt="Parfait" class="w-full h-96 object-cover group-hover:scale-105 transition duration-500">
             </div>
+            <div class="w-full md:w-1/2">
+                <div class="flex items-center gap-3 text-emerald-600 mb-4">
+                    <i class="fa-solid fa-bacteria text-2xl"></i>
+                    <span class="font-bold uppercase tracking-tighter">Probiotics & Digestion</span>
+                </div>
+                <h2 class="serif text-4xl mb-6">Gourmet Parfaits</h2>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    Our parfaits are a powerhouse of <strong>probiotics</strong> from premium yogurt and <strong>antioxidants</strong> from fresh berries. They support improved digestion and weight management by promoting fullness with high-quality protein and fiber.
+                </p>
+                <div class="flex flex-wrap gap-4 text-xs font-bold uppercase">
+                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full italic tracking-tight">Calcium Boost</span>
+                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full italic tracking-tight">Muscle Recovery</span>
+                </div>
+            </div>
+        </section>
 
-             <div id="drink">
-                 <img alt="Healthy drink" src="watermelon-smoothie.jpg" style="width: 150px; height: 160px;">
-                 <p>
-<b>Watermelon Juice</b> benefits include hydration, aiding muscle recovery, improving heart health,
- supporting the immune system, and assisting with weight management due to its rich content of water, 
- electrolytes, vitamins, and antioxidants like lycopene and citrulline. It also contains minerals like potassium and magnesium, which help regulate blood pressure and nerve function.  
+        <section class="health-card flex flex-col md:flex-row items-center gap-12 group">
+            <div class="w-full md:w-1/2 overflow-hidden rounded-3xl shadow-xl">
+                <img src="banana bread.jpg" alt="Banana Bread" class="w-full h-96 object-cover group-hover:scale-105 transition duration-500">
+            </div>
+            <div class="w-full md:w-1/2">
+                <div class="flex items-center gap-3 text-orange-600 mb-4">
+                    <i class="fa-solid fa-bolt text-2xl"></i>
+                    <span class="font-bold uppercase tracking-tighter">Natural Energy Boost</span>
+                </div>
+                <h2 class="serif text-4xl mb-6 text-orange-900">Banana Bread</h2>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    Rich in <strong>Potassium</strong> and <strong>Vitamin B6</strong>, our banana bread is more than a treat—it's heart-healthy fuel. Using whole grains and nuts like cashew, we provide healthy fats and tryptophan to naturally improve your mood and energy.
+                </p>
+                <div class="flex flex-wrap gap-4 text-xs font-bold uppercase">
+                    <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full italic tracking-tight">Mood Enhancer</span>
+                    <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full italic tracking-tight">Heart Healthy</span>
+                </div>
+            </div>
+        </section>
 
-    </div>
-    <button id="backToTop">Top</button>
-     <footer>&copy;2025 Ray's Kitchen Ltd. All rights reserved.</footer>
-   
-</body>
-</html>
+        <section class="health-card flex flex-col md:flex-row items-center gap-12 group">
+            <div class="w-full md:w-1/2 overflow-hidden rounded-3xl shadow-xl">
+                <img src="granola2.png" alt="Granola" class="w-full h-96 object-cover group-hover:scale-105 transition duration-500">
+            </div>
+            <div class="w-full md:w-1/2">
+                <div class="flex items-center gap-3 text-amber-600 mb-4">
+                    <i class="fa-solid fa-wheat-awn text-2xl"></i>
+                    <span class="font-bold uppercase tracking-tighter">Fiber & Gut Health</span>
+                </div>
+                <h2 class="serif text-4xl mb-6 text-amber-900">Crunchy Granola</h2>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    Oats, nuts, and seeds act as <strong>prebiotics</strong>, feeding your beneficial gut bacteria. The high fiber content aids digestion while healthy fats from seeds reduce inflammation throughout the body.
+                </p>
+                <div class="flex flex-wrap gap-4 text-xs font-bold uppercase">
+                    <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full italic tracking-tight">Prebiotic rich</span>
+                    <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full italic tracking-tight">Anti-inflammatory</span>
+                </div>
+            </div>
+        </section>
 
-<script>
-  const hamburger = document.createElement("button");
-  hamburger.innerHTML = "☰";
-  hamburger.classList.add("hamburger");
+        <section class="bg-emerald-900 rounded-[3rem] p-12 text-white flex flex-col md:flex-row gap-12 items-center">
+            <div class="md:w-1/3">
+                <img src="sweetend yogurt.jpg" class="rounded-2xl border-4 border-white/10" alt="Yogurt">
+            </div>
+            <div class="md:w-2/3">
+                <h2 class="serif text-4xl mb-6">The Greek Yogurt Foundation</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-emerald-400 mb-2 underline">Unsweetened</h4>
+                        <p class="text-sm text-emerald-100/80">Pure probiotics and zero added sugar. Perfect for appetite regulation and maximum bone strength through concentrated calcium.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-emerald-400 mb-2 underline">Lightly Sweetened</h4>
+                        <p class="text-sm text-emerald-100/80">All the protein and B-vitamins of our Greek base, with a touch of natural sweetness for a quick, healthy energy spike.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  const navbar = document.querySelector(".navbar");
-  navbar.insertBefore(hamburger, navbar.firstChild);
+        <section class="health-card flex flex-col md:flex-row items-center gap-12 group">
+            <div class="w-full md:w-1/2 overflow-hidden rounded-3xl shadow-xl">
+                <img src="watermelon-smoothie.jpg" alt="Juices" class="w-full h-96 object-cover group-hover:scale-105 transition duration-500">
+            </div>
+            <div class="w-full md:w-1/2">
+                <div class="flex items-center gap-3 text-red-600 mb-4">
+                    <i class="fa-solid fa-droplet text-2xl"></i>
+                    <span class="font-bold uppercase tracking-tighter">Hydration & Recovery</span>
+                </div>
+                <h2 class="serif text-4xl mb-6 text-red-900">Cold-Pressed Juices</h2>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    Our watermelon and pineapple blends are rich in <strong>Lycopene</strong> and <strong>Citrulline</strong>, which aid muscle recovery post-workout and regulate blood pressure through magnesium and potassium.
+                </p>
+                <div class="flex flex-wrap gap-4 text-xs font-bold uppercase">
+                    <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full italic tracking-tight">Electrolyte Rich</span>
+                    <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full italic tracking-tight">Immune Support</span>
+                </div>
+            </div>
+        </section>
 
-  const navMenu = document.querySelector(".navhome");
+    </main>
 
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("show");
-  });
+    <footer class="bg-slate-900 text-white py-12 text-center">
+        <p class="serif text-2xl mb-4">Ray's Kitchen</p>
+        <p class="text-gray-500 text-sm italic mb-8">Invest in your health; it pays the best interest.</p>
+        <div class="flex justify-center space-x-6 mb-8 text-xl">
+            <a href="#" class="hover:text-emerald-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="hover:text-emerald-500 transition"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p class="text-xs text-gray-600 uppercase tracking-[0.2em] border-t border-white/5 pt-8 inline-block">
+            &copy; 2026 Ray's Kitchen Ltd. All rights reserved.
+        </p>
+    </footer>
 
-   //show button when user scrolls down
-        const backToTop =document.getElementById("backToTop");
-        window.onscroll= function() {
-            if(document.body.scrollTop>300 || document.documentElement.scrollTop>300) {
-                backToTop.style.display= "block";
-            }
-            else{
-                backToTop.style.display= "none";
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-emerald-600 text-white w-12 h-12 rounded-full shadow-lg hidden flex items-center justify-center hover:bg-emerald-700 transition">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+        const backToTop = document.getElementById("backToTop");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTop.classList.remove("hidden");
+                backToTop.classList.add("flex");
+            } else {
+                backToTop.classList.add("hidden");
+                backToTop.classList.remove("flex");
             }
         };
-
-       //when clicked scroll up
         backToTop.addEventListener("click", () => {
-            window.scrollTo({ top:0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
-</script>
+    </script>
+</body>
+</html>
