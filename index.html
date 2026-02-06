@@ -196,7 +196,11 @@
                     <p>Ray’s Kitchen was born out of a simple realization: finding food that is both convenient and genuinely healthy shouldn't be a struggle. We started in Asaba with a mission to redefine the "snack" by packing every jar and box with nutrients that fuel your body.</p>
                     <p>From our signature cashew-topped banana bread to our cold-pressed ginger pineapple blends, every ingredient is chosen for its benefit. We believe in transparency—no hidden sugars, no artificial fillers, just real food made by real people who care about your wellness.</p>
                 </div>
-                <button class="mt-10 border-b-2 border-orange-600 pb-1 font-bold hover:text-orange-600 transition">View Full Ingredient List</button>
+                <button 
+    onclick="openModal()" 
+    class="mt-10 border-b-2 border-orange-600 pb-1 font-bold hover:text-orange-600 transition">
+    View Full Ingredient List
+</button>
             </div>
         </div>
     </section>
@@ -229,6 +233,22 @@
         </div>
         <p class="text-center text-gray-500 text-xs mt-10 tracking-widest uppercase">&copy; 2026 Ray's Kitchen. Crafted for Excellence.</p>
     </footer>
+
+    <!--the pop up-->
+    <div id="ingredientModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal()"></div>
+    <div class="bg-white rounded-3xl p-8 max-w-lg w-full z-10 relative shadow-2xl">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black text-2xl">&times;</button>
+        
+        <h3 class="serif text-3xl mb-6">Our Pure Ingredients</h3>
+        <div class="space-y-4 text-sm text-gray-600">
+            <p><strong>Parfaits:</strong> Full-fat Greek yogurt, honey, seasonal berries, house-made oats, chia seeds.</p>
+            <p><strong>Banana Bread:</strong> Overripe bananas, whole wheat flour, cashew nuts, dark chocolate (70% cocoa), coconut oil.</p>
+            <p><strong>Juices:</strong> 100% fresh fruit, ginger root, zero added water or sugar.</p>
+            <p class="pt-4 border-t italic text-orange-600">Note: All our products are prepared in a kitchen that handles nuts.</p>
+        </div>
+    </div>
+</div>
 
     <script>
         // Existing cart logic remains compatible!
@@ -297,6 +317,16 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
+
+        function openModal() {
+    document.getElementById('ingredientModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // Stop background scrolling
+}
+
+function closeModal() {
+    document.getElementById('ingredientModal').classList.add('hidden');
+    document.body.style.overflow = 'auto'; // Resume scrolling
+}
     </script>
 </body>
 </html>
