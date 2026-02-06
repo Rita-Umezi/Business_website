@@ -265,6 +265,37 @@
                     }
                 });
             });
+
+            // Back-to-top button visible when at or below the #menu section
+            const toTopBtn = document.createElement('button');
+            toTopBtn.id = 'toTopBtn';
+            toTopBtn.setAttribute('aria-label', 'Back to top');
+            toTopBtn.className = 'hidden fixed bottom-6 right-6 bg-orange-600 hover:bg-orange-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-50';
+            toTopBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+            document.body.appendChild(toTopBtn);
+
+            const menuSection = document.getElementById('menu');
+            const showButton = () => {
+                if (!menuSection) return;
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                // show when top of viewport has passed the menu section's top minus navbar
+                const triggerY = menuSection.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+                if (scrollY >= triggerY) {
+                    toTopBtn.classList.remove('hidden');
+                    toTopBtn.classList.add('opacity-100');
+                } else {
+                    toTopBtn.classList.add('hidden');
+                    toTopBtn.classList.remove('opacity-100');
+                }
+            };
+
+            window.addEventListener('scroll', showButton, { passive: true });
+            // initial check
+            showButton();
+
+            toTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
         });
     </script>
 </body>
