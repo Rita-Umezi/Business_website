@@ -1,13 +1,347 @@
-<div id="mobile-menu-overlay" class="fixed inset-0 bg-orange-600 z-[60] flex flex-col items-center justify-center space-y-8 text-white text-2xl font-bold transition-transform duration-300 translate-x-full">
-    <button id="close-mobile-menu" class="absolute top-6 right-6 text-4xl">&times;</button>
-    <a href="#home" class="mobile-nav-link">Home</a>
-    <a href="#menu" class="mobile-nav-link">Menu</a>
-    <a href="#about" class="mobile-nav-link">Our Story</a>
-    <a href="Health page.html" class="mobile-nav-link">Health</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ray's Kitchen | Premium Wholesome Eats</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="favicon replacement.png" type="image/png">
+    <link rel="icon" href="favicon replacement.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="favicon replacement.png" sizes="64x64" type="image/png">
+    <link rel="apple-touch-icon" href="favicon replacement.png" sizes="180x180">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/25c990c666.js" crossorigin="anonymous"></script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+        .hero-gradient { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('your-hero-image.jpg') center/cover; }
+        .product-card:hover .add-overlay { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-orange-50/30 text-slate-800">
+
+    <!-- Harmburger menu-->
+     <div id="mobile-menu-overlay" class="fixed inset-0 bg-orange-600 z-[60] flex flex-col items-center justify-center space-y-8 text-white text-2xl font-bold transition-transform duration-300 translate-x-full">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-4xl">&times;</button>
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#menu" class="mobile-nav-link">Menu</a>
+        <a href="#about" class="mobile-nav-link">Our Story</a>
+        <a href="Health page.html" class="mobile-nav-link">Health</a>
+    </div>
+
+    <nav class="fixed w-full z-50 glass border-b border-orange-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="serif text-2xl font-bold text-orange-600">Ray's Kitchen</div>
+            
+            <ul class="hidden md:flex space-x-8 font-semibold text-sm uppercase tracking-widest">
+                <li><a href="#home" class="hover:text-orange-500 transition">Home</a></li>
+                <li><a href="#menu" class="hover:text-orange-500 transition">Menu</a></li>
+                <li><a href="#about" class="hover:text-orange-500 transition">Our Story</a></li>
+                <li><a href="Health page.html" class="hover:text-orange-500 transition">Health</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-5">
+                <a href="cart.html" class="relative">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <span class="absolute -top-2 -right-2 bg-orange-600 text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                </a>
+                <button class="md:hidden" id="mobile-menu-btn"><i class="fa-solid fa-bars-staggered text-2xl"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative h-screen flex items-center justify-center text-center text-white hero-gradient">
+        <div class="max-w-3xl px-6">
+            <span class="uppercase tracking-[0.3em] text-sm mb-4 block font-light">Handcrafted in Asaba</span>
+            <h1 class="serif text-5xl md:text-7xl mb-6">Where taste buds meet <span class="italic text-orange-400">delight.</span></h1>
+            <p class="text-lg md:text-xl mb-10 text-gray-200 font-light italic">Clean eating, vibrant flavors, and wholesome ingredients delivered to your door.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#menu" class="bg-orange-600 hover:bg-orange-700 px-8 py-4 rounded-full font-bold transition transform hover:scale-105">Explore The Menu</a>
+                <a href="#about" class="bg-white/10 hover:bg-white/20 backdrop-blur-md px-8 py-4 rounded-full font-bold border border-white/30 transition">Read Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+        <div class="text-center group">
+            <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-orange-600 group-hover:text-white transition-all duration-500">
+                <i class="fa-solid fa-leaf"></i>
+            </div>
+            <h3 class="font-bold text-xl mb-3">Freshly Sourced</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">We partner with local farmers to ensure every fruit and nut is at its peak ripeness.</p>
+        </div>
+        <div class="text-center group">
+            <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-orange-600 group-hover:text-white transition-all duration-500">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3 class="font-bold text-xl mb-3">Energy Focused</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Our parfaits and snacks are designed to provide sustained energy without the sugar crash.</p>
+        </div>
+        <div class="text-center group">
+            <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl group-hover:bg-orange-600 group-hover:text-white transition-all duration-500">
+                <i class="fa-solid fa-truck-ramp-box"></i>
+            </div>
+            <h3 class="font-bold text-xl mb-3">Eco-Friendly Delivery</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Carefully packaged to arrive fresh while being mindful of our environment.</p>
+        </div>
+    </section>
+
+    <section id="menu" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="serif text-4xl mb-2">Our Signature Menu</h2>
+                    <div class="h-1 w-20 bg-orange-500"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Original item -->
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4">
+                        <img src="Parfait2.png" alt="Parfait" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300">
+                            <button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Parfait_large" data-price="6000">Quick Add</button>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg leading-tight">Gourmet Parfait <span class="block text-xs text-orange-600 uppercase tracking-tighter">Large Size</span></h3>
+                            <span class="font-bold text-orange-600">₦6k</span>
+                        </div>
+                        <p class="text-gray-500 text-xs mb-4">Creamy yogurt, seasonal berries, and house-made granola crunch.</p>
+                    </div>
+                </div>
+
+                <!-- 16 additional signature items -->
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4">
+                        <img src="chicken salad.jpg" alt="Item 2" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300">
+                            <button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Chicken_Salad" data-price="7000">Quick Add</button>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg leading-tight">Chicken Salad</h3>
+                            <span class="font-bold text-orange-600">₦7k</span>
+                        </div>
+                        <p class="text-gray-500 text-xs mb-4">Perfect mixture of cooked chicken and vegetables.</p>
+                    </div>
+                </div>
+
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4">
+                        <img src="banana bread2.jpg" alt="Item 3" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300">
+                            <button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Banana_Bread" data-price="4000">Quick Add</button>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg leading-tight">Banana Bread</h3>
+                            <span class="font-bold text-orange-600">₦4k</span>
+                        </div>
+                        <p class="text-gray-500 text-xs mb-4">Dark chocolate toppings.</p>
+                    </div>
+                </div>
+
+                <!-- Items 4 - 17 -->
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4"><img src="Parfait2.png" alt="Item 4" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"><div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300"><button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Item_4" data-price="3500">Quick Add</button></div></div><div class="px-2"><div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg leading-tight">Signature Item 4</h3><span class="font-bold text-orange-600">₦3.5k</span></div><p class="text-gray-500 text-xs mb-4">Chef's special.</p></div></div>
+
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4"><img src="chicken salad.jpg" alt="Item 5" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"><div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300"><button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Item_5" data-price="3800">Quick Add</button></div></div><div class="px-2"><div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg leading-tight">Signature Item 5</h3><span class="font-bold text-orange-600">₦3.8k</span></div><p class="text-gray-500 text-xs mb-4">Chef's special.</p></div></div>
+
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4"><img src="banana bread2.jpg" alt="Item 6" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"><div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300"><button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Item_6" data-price="2900">Quick Add</button></div></div><div class="px-2"><div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg leading-tight">Signature Item 6</h3><span class="font-bold text-orange-600">₦2.9k</span></div><p class="text-gray-500 text-xs mb-4">Chef's special.</p></div></div>
+
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4"><img src="Parfait2.png" alt="Item 7" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"><div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300"><button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Item_7" data-price="5000">Quick Add</button></div></div><div class="px-2"><div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg leading-tight">Signature Item 7</h3><span class="font-bold text-orange-600">₦5k</span></div><p class="text-gray-500 text-xs mb-4">Chef's special.</p></div></div>
+
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4"><img src="chicken salad.jpg" alt="Item 8" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"><div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300"><button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Item_8" data-price="3750">Quick Add</button></div></div><div class="px-2"><div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg leading-tight">Signature Item 8</h3><span class="font-bold text-orange-600">₦3.75k</span></div><p class="text-gray-500 text-xs mb-4">Chef's special.</p></div></div>
+
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4"><img src="banana bread2.jpg" alt="Item 9" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"><div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300"><button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Item_9" data-price="3100">Quick Add</button></div></div><div class="px-2"><div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg leading-tight">Signature Item 9</h3><span class="font-bold text-orange-600">₦3.1k</span></div><p class="text-gray-500 text-xs mb-4">Chef's special.</p></div></div>
+
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4"><img src="Parfait2.png" alt="Item 10" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"><div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300"><button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Item_10" data-price="2800">Quick Add</button></div></div><div class="px-2"><div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg leading-tight">Signature Item 10</h3><span class="font-bold text-orange-600">₦2.8k</span></div><p class="text-gray-500 text-xs mb-4">Chef's special.</p></div></div>
+
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4"><img src="chicken salad.jpg" alt="Item 11" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"><div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300"><button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Item_11" data-price="4400">Quick Add</button></div></div><div class="px-2"><div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg leading-tight">Signature Item 11</h3><span class="font-bold text-orange-600">₦4.4k</span></div><p class="text-gray-500 text-xs mb-4">Chef's special.</p></div></div>
+
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4"><img src="banana bread2.jpg" alt="Item 12" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"><div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300"><button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Item_12" data-price="3900">Quick Add</button></div></div><div class="px-2"><div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg leading-tight">Signature Item 12</h3><span class="font-bold text-orange-600">₦3.9k</span></div><p class="text-gray-500 text-xs mb-4">Chef's special.</p></div></div>
+
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4"><img src="Parfait2.png" alt="Item 13" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"><div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300"><button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Item_13" data-price="4800">Quick Add</button></div></div><div class="px-2"><div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg leading-tight">Signature Item 13</h3><span class="font-bold text-orange-600">₦4.8k</span></div><p class="text-gray-500 text-xs mb-4">Chef's special.</p></div></div>
+
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4"><img src="chicken salad.jpg" alt="Item 14" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"><div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300"><button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Item_14" data-price="3450">Quick Add</button></div></div><div class="px-2"><div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg leading-tight">Signature Item 14</h3><span class="font-bold text-orange-600">₦3.45k</span></div><p class="text-gray-500 text-xs mb-4">Chef's special.</p></div></div>
+
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4"><img src="banana bread2.jpg" alt="Item 15" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"><div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300"><button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Item_15" data-price="2700">Quick Add</button></div></div><div class="px-2"><div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg leading-tight">Signature Item 15</h3><span class="font-bold text-orange-600">₦2.7k</span></div><p class="text-gray-500 text-xs mb-4">Chef's special.</p></div></div>
+
+                <div class="product-card group relative bg-orange-50/50 rounded-3xl p-4 transition-all hover:shadow-2xl">
+                    <div class="relative overflow-hidden rounded-2xl h-64 mb-4"><img src="Parfait2.png" alt="Item 16" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"><div class="add-overlay opacity-0 translate-y-4 absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300"><button class="add bg-white text-black px-6 py-2 rounded-full font-bold hover:bg-orange-500 hover:text-white transition" data-product="Item_16" data-price="3600">Quick Add</button></div></div><div class="px-2"><div class="flex justify-between items-start mb-2"><h3 class="font-bold text-lg leading-tight">Signature Item 16</h3><span class="font-bold text-orange-600">₦3.6k</span></div><p class="text-gray-500 text-xs mb-4">Chef's special.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-orange-50">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-4">
+                    <img src="banana bread2.jpg" class="rounded-2xl shadow-lg" alt="Kitchen">
+                    <img src="Parfait2.png" class="rounded-2xl shadow-lg" alt="Parfait">
+                </div>
+                <div class="pt-8">
+                    <img src="chicken salad.jpg" class="rounded-2xl shadow-lg" alt="Salad">
+                </div>
+            </div>
+            <div>
+                <span class="text-orange-600 font-bold tracking-widest uppercase text-sm">Established 2025</span>
+                <h2 class="serif text-5xl mt-4 mb-8">Crafting Healthier Habits in Every Bite</h2>
+                <div class="space-y-6 text-gray-600 leading-relaxed">
+                    <p>Ray’s Kitchen was born out of a simple realization: finding food that is both convenient and genuinely healthy shouldn't be a struggle. We started in Asaba with a mission to redefine the "snack" by packing every jar and box with nutrients that fuel your body.</p>
+                    <p>From our signature cashew-topped banana bread to our cold-pressed ginger pineapple blends, every ingredient is chosen for its benefit. We believe in transparency—no hidden sugars, no artificial fillers, just real food made by real people who care about your wellness.</p>
+                </div>
+                <button 
+    onclick="openModal()" 
+    class="mt-10 border-b-2 border-orange-600 pb-1 font-bold hover:text-orange-600 transition">
+    View Full Ingredient List
+</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 border-b border-white/10 pb-16">
+            <div class="col-span-2">
+                <h2 class="serif text-3xl mb-6">Ray's Kitchen</h2>
+                <p class="text-gray-400 max-w-sm mb-6">Join our journey toward better health. Subscribe for weekly recipes and special menu updates.</p>
+                <div class="flex gap-2">
+                    <input type="email" placeholder="Your Email" class="bg-white/10 border border-white/20 rounded-full px-6 py-3 flex-grow outline-none focus:border-orange-500">
+                    <button class="bg-orange-600 px-6 py-3 rounded-full font-bold">Join</button>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Contact</h4>
+                <ul class="text-gray-400 space-y-4 text-sm">
+                    <li><i class="fa-solid fa-location-dot mr-2 text-orange-500"></i> Asaba, Delta State</li>
+                    <li><i class="fa-solid fa-phone mr-2 text-orange-500"></i> (+234) 907 985 5173</li>
+                    <li><i class="fa-solid fa-envelope mr-2 text-orange-500"></i> rayskitchen@gmail.com</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Follow Us</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-600 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-600 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <p class="text-center text-gray-500 text-xs mt-10 tracking-widest uppercase">&copy; 2026 Ray's Kitchen. Crafted for Excellence.</p>
+    </footer>
+
+    <!--the pop up-->
+    <div id="ingredientModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal()"></div>
+    <div class="bg-white rounded-3xl p-8 max-w-lg w-full z-10 relative shadow-2xl">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black text-2xl">&times;</button>
+        
+        <h3 class="serif text-3xl mb-6">Our Pure Ingredients</h3>
+        <div class="space-y-4 text-sm text-gray-600">
+            <p><strong>Parfaits:</strong> Full-fat Greek yogurt, honey, seasonal berries, house-made oats, chia seeds.</p>
+            <p><strong>Banana Bread:</strong> Overripe bananas, whole wheat flour, cashew nuts, dark chocolate (70% cocoa), coconut oil.</p>
+            <p><strong>Juices:</strong> 100% fresh fruit, ginger root, zero added water or sugar.</p>
+            <p class="pt-4 border-t italic text-orange-600">Note: All our products are prepared in a kitchen that handles nuts.</p>
+        </div>
+    </div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
+    <script>
+        // Existing cart logic remains compatible!
+        document.addEventListener('DOMContentLoaded', () => {
+            const getCart = () => JSON.parse(localStorage.getItem('cart')) || [];
+            const saveCart = (cart) => localStorage.setItem('cart', JSON.stringify(cart));
+
+            document.querySelectorAll('.add').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const product = btn.dataset.product;
+                    const price = Number(btn.dataset.price);
+                    const cart = getCart();
+                    cart.push({ product, price });
+                    saveCart(cart);
+                    alert(`${product} added!`);
+                });
+            });
+
+            // Smooth scroll for in-page links with offset for fixed navbar
+            const nav = document.querySelector('nav');
+            const navHeight = nav ? nav.offsetHeight : 72;
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (!href || href === '#') return;
+                    const id = href.slice(1);
+                    const target = document.getElementById(id);
+                    if (target) {
+                        e.preventDefault();
+                        const targetPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 12;
+                        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+                        // update URL hash without jumping
+                        history.pushState(null, '', `#${id}`);
+                    }
+                });
+            });
+
+            // Back-to-top button visible when at or below the #menu section
+            const toTopBtn = document.createElement('button');
+            toTopBtn.id = 'toTopBtn';
+            toTopBtn.setAttribute('aria-label', 'Back to top');
+            toTopBtn.className = 'hidden fixed bottom-6 right-6 bg-orange-600 hover:bg-orange-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-50';
+            toTopBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+            document.body.appendChild(toTopBtn);
+
+            const menuSection = document.getElementById('menu');
+            const showButton = () => {
+                if (!menuSection) return;
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                // show when top of viewport has passed the menu section's top minus navbar
+                const triggerY = menuSection.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+                if (scrollY >= triggerY) {
+                    toTopBtn.classList.remove('hidden');
+                    toTopBtn.classList.add('opacity-100');
+                } else {
+                    toTopBtn.classList.add('hidden');
+                    toTopBtn.classList.remove('opacity-100');
+                }
+            };
+
+            window.addEventListener('scroll', showButton, { passive: true });
+            // initial check
+            showButton();
+
+            toTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        function openModal() {
+    document.getElementById('ingredientModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // Stop background scrolling
+}
+
+function closeModal() {
+    document.getElementById('ingredientModal').classList.add('hidden');
+    document.body.style.overflow = 'auto'; // Resume scrolling
+}
+
+document.addEventListener('DOMContentLoaded', () => {
         // --- Hamburger Menu Logic ---
         const menuBtn = document.getElementById('mobile-menu-btn');
         const closeBtn = document.getElementById('close-mobile-menu');
@@ -95,4 +429,6 @@
         document.getElementById('ingredientModal').classList.add('hidden');
         document.body.style.overflow = 'auto';
     }
-</script>
+    </script>
+</body>
+</html>
