@@ -11,11 +11,11 @@ const protect = require('../middleware/authMiddleware');
 
 router.route('/')
   .get(getProducts)
-  .post(protect, createProduct);
+  .post(createProduct);
 
 router.route('/:id')
   .get(getProductById)
-  .put(protect, updateProduct)
-  .delete(protect, deleteProduct);
+  .put(updateProduct)
+  .delete(deleteProduct);
 
 module.exports = router;

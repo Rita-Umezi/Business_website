@@ -7,7 +7,7 @@ const protect = require('../middleware/authMiddleware');
 router.post('/checkout', checkout);
 
 // Admin routes
-router.get('/', protect, getOrders);
-router.put('/:id/status', protect, updateOrderStatus);
+router.get('/', getOrders);
+router.put('/:id/status', updateOrderStatus);
 
 module.exports = router;
