@@ -28,7 +28,7 @@ app.use('/api/dashboard', dashboardRoutes);
 
 // Health check route
 app.get('/api/health', (req, res) => {
-  res.status(200).json({ status: 'OK', message: 'Server is running' });
+  res.status(200).json({ status: 'OK', message: 'Server is running - Version: 1.0.1 - AuthRemoved' });
 });
 
 // Database connection
