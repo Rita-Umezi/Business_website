@@ -1,7 +1,29 @@
 const crypto = require('crypto');
+const axios = require('axios');
 const Order = require('../models/Order');
 const Product = require('../models/Product');
 const { sendVendorNotification } = require('../utils/emailService');
+
+// Helper to send WhatsApp via CallMeBot
+const sendWhatsApp = async (order) => {
+  const number = process.env.WHATSAPP_NUMBER; // Format: 23480...
+  const apikey = process.env.WHATSAPP_API_KEY;
+
+  if (!number || !apikey) {
+    console.warn('WhatsApp credentials missing. Skipping notification.');
+    return;
+  }
+
+  const message = `🚀 *New Order Alert!*%0A%0A*Name:* ${order.customerName}%0A*Amount:* ₦${order.totalAmount.toLocaleString()}%0A*Items:* ${order.products.length}%0A*Address:* ${order.deliveryAddress}%0A%0AView details in your dashboard!`;
+
+  try {
+    const url = `https://api.callmebot.com/whatsapp.php?phone=${number}&text=${message}&apikey=${apikey}`;
+    await axios.get(url);
+    console.log('WhatsApp notification sent successfully');
+  } catch (error) {
+    console.error('WhatsApp notification failed:', error.message);
+  }
+};
 
 // @desc    Paystack Webhook Handler
 // @route   POST /api/webhooks/paystack
@@ -17,7 +39,7 @@ const paystackWebhook = async (req, res) => {
     return res.status(400).send('Invalid signature');
   }
 
-  const payload = JSON.parse(rawBody);
+  const payload = JSON.parse(rawBody.toString());
 
   try {
     if (payload.event === 'charge.success') {
@@ -26,11 +48,11 @@ const paystackWebhook = async (req, res) => {
 
       if (!orderId) {
         console.warn(`Webhook received for reference ${reference} but no order_id in metadata.`);
-        return res.status(200).send('OK'); // Paystack requires 200 OK so it doesn't retry
+        return res.status(200).send('OK'); 
       }
 
       // Find order
-      const order = await Order.findById(orderId);
+      const order = await Order.findById(orderId).populate('products.productId');
       if (!order) {
         console.warn(`Order ${orderId} not found for webhook.`);
         return res.status(200).send('OK');
@@ -48,7 +70,6 @@ const paystackWebhook = async (req, res) => {
       for (const item of order.products) {
         const product = await Product.findById(item.productId);
         if (product) {
-          // ensure stock doesn't go below 0 if concurrent updates happened
           const newStock = Math.max(0, product.stock - item.quantity);
           product.stock = newStock;
           await product.save();
@@ -57,8 +78,9 @@ const paystackWebhook = async (req, res) => {
 
       await order.save(); // Save order status
 
-      // Send Vendor Notification
-      await sendVendorNotification(order);
+      // Send Notifications
+      await sendVendorNotification(order); // Email
+      await sendWhatsApp(order); // WhatsApp
     }
 
     res.status(200).send('Webhook handled successfully');
