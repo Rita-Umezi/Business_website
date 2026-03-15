@@ -15,8 +15,7 @@ const orderSchema = new mongoose.Schema({
   },
   products: [{
     productId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Product',
+      type: String,
       required: [true, 'Please provide product ID']
     },
     quantity: {
@@ -45,6 +44,10 @@ const orderSchema = new mongoose.Schema({
   },
   paystackReference: {
     type: String,
+  },
+  guestId: {
+    type: String,
+    required: false
   }
 }, { timestamps: true });
 
