@@ -1,3 +1,4 @@
+<!-- Main landing page for Ray's Kitchen showcasing the brand, menu, and values -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +32,7 @@
         <a href="Health page.html" class="mobile-nav-link">Health</a>
     </div>
 
+    <!-- Navigation bar with logo, page links, and cart notification -->
     <nav class="fixed w-full z-50 glass border-b border-orange-100">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="serif text-2xl font-bold text-orange-600">Ray's Kitchen</div>
@@ -52,6 +54,7 @@
         </div>
     </nav>
 
+    <!-- Hero section with the main brand message and call-to-action buttons -->
     <section id="home" class="relative h-screen flex items-center justify-center text-center text-white hero-gradient">
         <div class="max-w-3xl px-6">
             <span class="uppercase tracking-[0.3em] text-sm mb-4 block font-light">Handcrafted in Asaba</span>
@@ -88,6 +91,7 @@
         </div>
     </section>
 
+    <!-- Menu section where products are dynamically loaded from the database/local data -->
     <section id="menu" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-end mb-12">
@@ -108,6 +112,7 @@
         </div>
     </section>
 
+    <!-- About section detailing the brand's mission and ingredient transparency -->
     <section id="about" class="py-24 bg-orange-50">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
             <div class="grid grid-cols-2 gap-4">
@@ -120,7 +125,7 @@
                 </div>
             </div>
             <div>
-                <span class="text-orange-600 font-bold tracking-widest uppercase text-sm">Established 2025</span>
+                <span class="text-orange-600 font-bold tracking-widest uppercase text-sm">Established 2020</span>
                 <h2 class="serif text-5xl mt-4 mb-8">Crafting Healthier Habits in Every Bite</h2>
                 <div class="space-y-6 text-gray-600 leading-relaxed">
                     <p>Ray’s Kitchen was born out of a simple realization: finding food that is both convenient and genuinely healthy shouldn't be a struggle. We started in Asaba with a mission to redefine the "snack" by packing every jar and box with nutrients that fuel your body.</p>
@@ -135,6 +140,7 @@
         </div>
     </section>
 
+    <!-- Footer containing contact info, social links, and newsletter signup -->
     <footer class="bg-slate-900 text-white pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 border-b border-white/10 pb-16">
             <div class="col-span-2">
@@ -166,6 +172,7 @@
     </footer>
 
     <!--the pop up-->
+    <!-- Hidden modal window that displays the full list of ingredients -->
     <div id="ingredientModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
     <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal()"></div>
     <div class="bg-white rounded-3xl p-8 max-w-lg w-full z-10 relative shadow-2xl">
@@ -190,6 +197,7 @@
             // Fetch Products from Backend
             const productsGrid = document.getElementById('products-grid');
             
+            // Connects to the backend API to retrieve the current product list
             async function fetchProducts() {
                 try {
                     // Use local static products if available for instant loading
@@ -218,6 +226,7 @@
                 }
             }
 
+            // Generates the HTML for each product card and injects it into the grid
             function renderProducts(products) {
                 if(products.length === 0) {
                     productsGrid.innerHTML = `<div class="col-span-full py-10 text-center text-slate-500">Menu is empty right now.</div>`;
@@ -307,6 +316,7 @@
             }
 
             // Function to update cart notification bubble
+            // Updates the red number on the cart icon based on local storage content
             function updateCartBadge() {
                 const cart = getCart();
                 const badge = document.querySelector('.fa-cart-shopping').nextElementSibling;
@@ -319,6 +329,7 @@
             updateCartBadge();
 
             // Guest ID Generation
+            // Assigns a persistent ID to anonymous shoppers for order tracking
             function getGuestId() {
                 let guestId = localStorage.getItem('guestId');
                 if (!guestId) {
