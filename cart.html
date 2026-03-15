@@ -1,3 +1,4 @@
+<!-- Checkout page where users review their selected items and provide delivery info -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +38,7 @@
         </div>
     </nav>
 
+    <!-- Main content area containing the item list and order management buttons -->
     <main class="flex-grow pt-32 pb-20 px-6">
         <div class="max-w-4xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
@@ -54,6 +56,7 @@
             </div>
 
             <!-- Customer Details Form -->
+            <!-- Form for collecting customer contact and delivery information -->
             <div class="bg-white rounded-3xl shadow-lg p-8 mb-8">
                 <h3 class="serif text-2xl font-bold mb-6 text-orange-600 border-b pb-2">Delivery Details</h3>
                 <form id="checkoutForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -76,6 +79,7 @@
                 </form>
             </div>
 
+            <!-- Order summary section with total price calculation and checkout trigger -->
             <div class="bg-white rounded-3xl shadow-lg p-8">
                 <div class="flex justify-between items-center mb-6">
                     <span class="text-xl font-bold">Total Amount:</span>
@@ -114,6 +118,7 @@
                 localStorage.setItem('cart', JSON.stringify(cart));
             }
 
+            // Pulls cart data from storage and displays it as a grouped list
             function renderCart() {
                 let cart = getCart();
                 
@@ -197,6 +202,7 @@
             }
 
             // REMOVE ITEM BY ID OR NAME
+            // Handles individual item removal when the "Remove" button is clicked
             itemsDiv.addEventListener('click', (e) => {
                 const removeBtn = e.target.closest('.remove');
                 if (!removeBtn) return;
@@ -219,6 +225,7 @@
                 }
             });
 
+            // Completely empties the shopping cart after user confirmation
             clearBtn.addEventListener('click', () => {
                 if(confirm("Are you sure you want to clear your cart?")) {
                     localStorage.removeItem('cart');
@@ -228,6 +235,7 @@
             });
 
             // Connect checkout to backend
+            // Validates the form and sends the order details to the server for payment
             payButton.addEventListener('click', async () => {
                 const cart = getCart();
                 if(cart.length === 0) return alert("Your cart is empty!");
