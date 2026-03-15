@@ -1,3 +1,4 @@
+// This file holds the static product catalog for Ray's Kitchen, allowing for instant loading without a database call.
 const products = [
   {
     _id: '1',
