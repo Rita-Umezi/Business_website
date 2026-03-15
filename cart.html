@@ -86,11 +86,14 @@
                     <span class="text-3xl font-black text-orange-600 italic">₦<span id="total">0</span></span>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <a href="index.html" class="flex items-center justify-center gap-2 border-2 border-slate-200 py-4 rounded-full font-bold hover:bg-slate-50 transition">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a href="index.html" class="flex items-center justify-center gap-2 border-2 border-slate-200 py-4 rounded-full font-bold hover:bg-slate-50 transition order-3 lg:order-1">
                         <i class="fa-solid fa-arrow-left"></i> Continue Shopping
                     </a>
-                    <button id="payButton" class="bg-orange-600 text-white py-4 rounded-full font-bold shadow-lg shadow-orange-600/30 hover:bg-orange-700 transition flex items-center justify-center gap-3">
+                    <button id="whatsappOrder" class="bg-emerald-500 text-white py-4 rounded-full font-bold shadow-lg shadow-emerald-500/20 hover:bg-emerald-600 transition flex items-center justify-center gap-3 order-2">
+                        Order via WhatsApp <i class="fa-brands fa-whatsapp"></i>
+                    </button>
+                    <button id="payButton" class="bg-orange-600 text-white py-4 rounded-full font-bold shadow-lg shadow-orange-600/30 hover:bg-orange-700 transition flex items-center justify-center gap-3 order-1 lg:order-3">
                         Secure Checkout <i class="fa-solid fa-lock"></i>
                     </button>
                 </div>
@@ -294,6 +297,37 @@
                     payButton.disabled = false;
                     payButton.innerHTML = 'Secure Checkout <i class="fa-solid fa-lock"></i>';
                 }
+            });
+            
+            // Generate and open a WhatsApp message with cart details
+            const whatsappBtn = document.getElementById('whatsappOrder');
+            whatsappBtn.addEventListener('click', () => {
+                const cart = getCart();
+                if (cart.length === 0) return alert("Your cart is empty!");
+
+                const groupedCart = cart.reduce((acc, item) => {
+                    const key = item.product || 'Unknown Item';
+                    if (!acc[key]) {
+                        acc[key] = { name: key, qty: 1, price: item.price };
+                    } else {
+                        acc[key].qty += 1;
+                    }
+                    return acc;
+                }, {});
+
+                let total = 0;
+                let message = "Hi Ray's Kitchen! 🥣\n\nI'd like to place an order for:\n";
+                
+                Object.values(groupedCart).forEach(item => {
+                    const subtotal = item.price * item.qty;
+                    total += subtotal;
+                    message += `- ${item.qty}x ${item.name} (₦${subtotal.toLocaleString()})\n`;
+                });
+
+                message += `\n*Total: ₦${total.toLocaleString()}*\n\nPlease let me know when you receive this!`;
+                
+                const encodedMsg = encodeURIComponent(message);
+                window.open(`https://wa.me/2349079855173?text=${encodedMsg}`, '_blank');
             });
 
             renderCart();
