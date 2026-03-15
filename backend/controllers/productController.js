@@ -1,11 +1,11 @@
-const Product = require('../models/Product');
+const products = require('../../productsData');
 
 // @desc    Get all products
 // @route   GET /api/products
 // @access  Public
 const getProducts = async (req, res) => {
   try {
-    const products = await Product.find({}).sort({ createdAt: -1 });
+    // Return static products
     res.status(200).json({ success: true, count: products.length, data: products });
   } catch (error) {
     console.error('getProducts error:', error);
@@ -18,17 +18,13 @@ const getProducts = async (req, res) => {
 // @access  Public
 const getProductById = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
+    const product = products.find(p => p._id === req.params.id);
     if (!product) {
       return res.status(404).json({ success: false, message: 'Product not found' });
     }
     res.status(200).json({ success: true, data: product });
   } catch (error) {
     console.error('getProductById error:', error);
-    // If it's not a valid ObjectId, it throws a CastError
-    if (error.name === 'CastError') {
-      return res.status(404).json({ success: false, message: 'Product not found' });
-    }
     res.status(500).json({ success: false, message: 'Server error' });
   }
 };
@@ -37,66 +33,21 @@ const getProductById = async (req, res) => {
 // @route   POST /api/products
 // @access  Private (Admin)
 const createProduct = async (req, res) => {
-  try {
-    const product = await Product.create(req.body);
-    res.status(201).json({ success: true, data: product });
-  } catch (error) {
-    console.error('createProduct error:', error);
-    if (error.name === 'ValidationError') {
-      const messages = Object.values(error.errors).map(val => val.message);
-      return res.status(400).json({ success: false, message: messages.join(', ') });
-    }
-    res.status(500).json({ success: false, message: 'Server error' });
-  }
+  res.status(403).json({ success: false, message: 'Direct DB modification disabled. Please update productsData.js instead.' });
 };
 
 // @desc    Update product
 // @route   PUT /api/products/:id
 // @access  Private (Admin)
 const updateProduct = async (req, res) => {
-  try {
-    let product = await Product.findById(req.params.id);
-    
-    if (!product) {
-       return res.status(404).json({ success: false, message: 'Product not found' });
-    }
-
-    product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true
-    });
-
-    res.status(200).json({ success: true, data: product });
-  } catch (error) {
-    console.error('updateProduct error:', error);
-    if (error.name === 'CastError') {
-      return res.status(404).json({ success: false, message: 'Product not found' });
-    }
-    res.status(500).json({ success: false, message: 'Server error' });
-  }
+  res.status(403).json({ success: false, message: 'Direct DB modification disabled. Please update productsData.js instead.' });
 };
 
 // @desc    Delete product
 // @route   DELETE /api/products/:id
 // @access  Private (Admin)
 const deleteProduct = async (req, res) => {
-  try {
-    const product = await Product.findById(req.params.id);
-
-    if (!product) {
-       return res.status(404).json({ success: false, message: 'Product not found' });
-    }
-
-    await Product.findByIdAndDelete(req.params.id);
-
-    res.status(200).json({ success: true, data: {} });
-  } catch (error) {
-    console.error('deleteProduct error:', error);
-    if (error.name === 'CastError') {
-      return res.status(404).json({ success: false, message: 'Product not found' });
-    }
-    res.status(500).json({ success: false, message: 'Server error' });
-  }
+  res.status(403).json({ success: false, message: 'Direct DB modification disabled. Please update productsData.js instead.' });
 };
 
 module.exports = {
