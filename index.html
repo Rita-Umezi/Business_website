@@ -226,7 +226,6 @@
                 productsGrid.innerHTML = '';
                 
                 products.forEach(product => {
-                    // Using toLocaleString logic natively
                     const card = `
                     <div class="product-card group relative bg-white rounded-[2rem] p-5 border border-orange-100 transition-all hover:shadow-2xl hover:shadow-orange-200/50 flex flex-col h-full">
                         <div class="relative overflow-hidden rounded-2xl h-64 mb-6 flex-shrink-0">
@@ -246,10 +245,17 @@
                             <p class="text-slate-500 text-sm mb-6 flex-grow leading-relaxed">${product.description}</p>
                             
                             ${product.stock > 0 ? `
-                                <button class="add w-full bg-orange-600 text-white py-4 rounded-2xl font-bold shadow-lg shadow-orange-600/20 hover:bg-orange-700 transition-all active:scale-95 flex items-center justify-center gap-2" 
-                                        data-id="${product._id}" data-name="${product.name}" data-price="${product.price}">
-                                    <i class="fa-solid fa-cart-plus"></i> Add to Cart
-                                </button>
+                                <div class="flex items-center gap-3">
+                                    <div class="flex items-center bg-orange-50 rounded-xl border border-orange-100 overflow-hidden">
+                                        <button class="qty-btn min-w-[40px] h-[48px] flex items-center justify-center text-orange-600 hover:bg-orange-100 transition font-black" data-action="minus" data-id="${product._id}">-</button>
+                                        <span class="qty-val font-bold px-2 text-slate-800 w-8 text-center" id="qty-${product._id}">1</span>
+                                        <button class="qty-btn min-w-[40px] h-[48px] flex items-center justify-center text-orange-600 hover:bg-orange-100 transition font-black" data-action="plus" data-id="${product._id}">+</button>
+                                    </div>
+                                    <button class="add flex-grow bg-orange-600 text-white h-[48px] rounded-xl font-bold shadow-lg shadow-orange-600/20 hover:bg-orange-700 transition-all active:scale-95 flex items-center justify-center gap-2" 
+                                            data-id="${product._id}" data-name="${product.name}" data-price="${product.price}">
+                                        <i class="fa-solid fa-cart-plus"></i> Add
+                                    </button>
+                                </div>
                             ` : `
                                 <button disabled class="w-full bg-slate-100 text-slate-400 py-4 rounded-2xl font-bold cursor-not-allowed flex items-center justify-center gap-2">
                                     <i class="fa-solid fa-ban"></i> Out of Stock
@@ -261,21 +267,40 @@
                     productsGrid.innerHTML += card;
                 });
 
-                // Attach Event Listeners to New Buttons
+                // Quantity Button Logic
+                document.querySelectorAll('.qty-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.dataset.id;
+                        const action = btn.dataset.action;
+                        const qtySpan = document.getElementById(`qty-${id}`);
+                        let currentQty = parseInt(qtySpan.textContent);
+
+                        if (action === 'plus') {
+                            qtySpan.textContent = currentQty + 1;
+                        } else if (action === 'minus' && currentQty > 1) {
+                            qtySpan.textContent = currentQty - 1;
+                        }
+                    });
+                });
+
+                // Attach Event Listeners to Add Buttons
                 document.querySelectorAll('.add').forEach(btn => {
                     btn.addEventListener('click', () => {
                         const id = btn.dataset.id;
                         const name = btn.dataset.name;
                         const price = Number(btn.dataset.price);
+                        const qty = parseInt(document.getElementById(`qty-${id}`).textContent);
                         
                         const cart = getCart();
-                        // Instead of just product string, store new structure
-                        cart.push({ id, product: name, price });
+                        for (let i = 0; i < qty; i++) {
+                            cart.push({ id, product: name, price });
+                        }
                         saveCart(cart);
                         
-                        // Update UI logic
                         updateCartBadge();
-                        alert(`${name} added!`);
+                        alert(`${qty} x ${name} added!`);
+                        // Reset quantity to 1 after adding
+                        document.getElementById(`qty-${id}`).textContent = '1';
                     });
                 });
             }
