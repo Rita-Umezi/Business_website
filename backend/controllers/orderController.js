@@ -1,5 +1,6 @@
 const Order = require('../models/Order');
 const Product = require('../models/Product');
+const productsData = require('../../productsData');
 const { initializePayment } = require('../utils/paystackService');
 
 // @desc    Checkout / Create order
@@ -7,7 +8,7 @@ const { initializePayment } = require('../utils/paystackService');
 // @access  Public
 const checkout = async (req, res) => {
   try {
-    const { customerName, phone, email, deliveryAddress, cartItems } = req.body;
+    const { customerName, phone, email, deliveryAddress, cartItems, guestId } = req.body;
 
     if (!cartItems || cartItems.length === 0) {
       return res.status(400).json({ success: false, message: 'Cart is empty' });
@@ -16,9 +17,9 @@ const checkout = async (req, res) => {
     let totalAmount = 0;
     const orderProducts = [];
 
-    // Verify products and calculate total
+    // Verify products and calculate total using static productsData
     for (const item of cartItems) {
-      const product = await Product.findById(item.productId);
+      const product = productsData.find(p => p._id === String(item.productId));
       
       if (!product) {
         return res.status(404).json({ success: false, message: `Product ${item.productId} not found` });
@@ -46,13 +47,13 @@ const checkout = async (req, res) => {
       products: orderProducts,
       totalAmount,
       paymentStatus: 'pending',
-      orderStatus: 'processing'
+      orderStatus: 'processing',
+      guestId
     });
 
     // Initialize Paystack payment
-    // Amount is in kobo (multiply by 100)
     const paystackForm = {
-      email: email || 'customer@example.com', // Paystack requires an email. If customer didn't provide, use a default or mandate it.
+      email: email || 'customer@example.com', 
       amount: totalAmount * 100,
       metadata: {
         order_id: order._id
