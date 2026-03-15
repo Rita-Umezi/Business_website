@@ -26,6 +26,10 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/webhooks', webhookRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 
+// Serve frontend files
+const path = require('path');
+app.use(express.static(path.join(__dirname, '..')));
+
 // Health check route
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'OK', message: 'Server is running - Version: 1.0.1 - AuthRemoved' });
