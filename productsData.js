@@ -1,13 +1,6 @@
 // This file holds the static product catalog for Ray's Kitchen, allowing for instant loading without a database call.
 const products = [
-  {
-    _id: '1',
-    name: 'Gourmet Parfait',
-    price: 6000,
-    image: 'Parfait2.png',
-    description: 'Creamy yogurt, seasonal berries, and house-made granola crunch. Large Size.',
-    stock: 50
-  },
+
   {
     _id: '2',
     name: 'Chicken Salad',
@@ -24,30 +17,7 @@ const products = [
     description: 'Special banana bread with dark chocolate toppings.',
     stock: 30
   },
-  {
-    _id: '4',
-    name: 'Fruit Bowls',
-    price: 3500,
-    image: 'Parfait2.png',
-    description: 'Fresh seasonal fruits.',
-    stock: 40
-  },
-  {
-    _id: '5',
-    name: 'Greek Yogurt',
-    price: 3800,
-    image: 'Parfait2.png',
-    description: 'Plain greek yogurt.',
-    stock: 30
-  },
-  {
-    _id: '6',
-    name: 'Pineapple Juice',
-    price: 2500,
-    image: 'pineapple.png',
-    description: '100% natural cold-pressed juice.',
-    stock: 60
-  },
+
   {
     _id: '7',
     name: '500 ml Watermelon Juice',
