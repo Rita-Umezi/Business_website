@@ -63,30 +63,30 @@ const products = [
   },
   {
     name: 'Food Tray',
-    price: 0,
+    price: 20000,
     image: 'food tray.jpg',
-    description: 'A delicate assortment for events. (Price TBD)',
+    description: 'A delicate assortment for events.',
     stock: 20
   },
   {
-    name: 'Sweetened Yogurt',
-    price: 0,
+    name: 'Sweetened Greek Yoghurt',
+    price: 10000,
     image: 'sweetend yogurt.jpg',
-    description: 'Sweet and creamy yogurt. (Price TBD)',
+    description: 'Sweet and creamy greek yoghurt.',
     stock: 30
   },
   {
-    name: 'Unsweetened Yogurt',
-    price: 0,
-    image: 'white.png',
-    description: 'Fresh and plain yogurt. (Price TBD)',
+    name: 'Unsweetened Greek Yoghurt',
+    price: 10000,
+    image: 'sweetend yogurt.jpg',
+    description: 'Fresh and plain greek yoghurt.',
     stock: 30
   },
   {
     name: 'Granola',
-    price: 0,
-    image: 'granola.png',
-    description: 'Crunchy nut mix. (Price TBD)',
+    price: 5000,
+    image: 'granola2.png',
+    description: 'Crunchy nut mix.',
     stock: 50
   }
 ];
