@@ -147,7 +147,7 @@
 
                 // GROUPING LOGIC: Count quantities of same items
                 const groupedCart = cart.reduce((acc, item) => {
-                    const key = item.id || item.product || 'unknown';
+                    const key = item.product || item.id || 'unknown';
                     if (!acc[key]) {
                         acc[key] = { 
                             id: item.id || '', 
@@ -217,8 +217,8 @@
                 
                 // Find index of first match and remove it
                 const index = cart.findIndex(item => {
-                    if (productId && item.id === productId) return true;
                     if (productName && item.product === productName) return true;
+                    if (!productName && productId && item.id === productId) return true;
                     return false;
                 });
                 
