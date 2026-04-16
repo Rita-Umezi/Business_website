@@ -181,7 +181,7 @@
                     }
 
                     const imgPath = productInfo ? productInfo.image : 'placeholder.png';
-                    const displayName = productInfo ? productInfo.name : item.product;
+                    const displayName = item.product || (productInfo ? productInfo.name : 'Unknown Item');
 
                     const row = document.createElement('div');
                     row.className = 'flex items-center gap-4 md:gap-8 pb-6 border-b border-slate-100 last:border-0 last:pb-0';
