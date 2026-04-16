@@ -60,6 +60,34 @@ const products = [
     image: '550ml parfait.jpeg',
     description: 'Creamy yogurt, seasonal berries, and granola.',
     stock: 50
+  },
+  {
+    name: 'Food Tray',
+    price: 0,
+    image: 'food tray.jpg',
+    description: 'A delicate assortment for events. (Price TBD)',
+    stock: 20
+  },
+  {
+    name: 'Sweetened Yogurt',
+    price: 0,
+    image: 'sweetend yogurt.jpg',
+    description: 'Sweet and creamy yogurt. (Price TBD)',
+    stock: 30
+  },
+  {
+    name: 'Unsweetened Yogurt',
+    price: 0,
+    image: 'white.png',
+    description: 'Fresh and plain yogurt. (Price TBD)',
+    stock: 30
+  },
+  {
+    name: 'Granola',
+    price: 0,
+    image: 'granola.png',
+    description: 'Crunchy nut mix. (Price TBD)',
+    stock: 50
   }
 ];
 
