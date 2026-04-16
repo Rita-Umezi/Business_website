@@ -6,14 +6,14 @@ const products = [
 
   {
     name: 'Chicken Salad',
-    price: 7000,
+    price: 8000,
     image: 'chicken salad.jpg',
     description: 'Perfect mixture of cooked chicken and vegetables.',
     stock: 20
   },
   {
     name: 'Banana Bread',
-    price: 4000,
+    price: 5000,
     image: 'banana bread2.jpg',
     description: 'Special banana bread with dark chocolate toppings.',
     stock: 30
