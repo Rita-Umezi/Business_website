@@ -41,16 +41,16 @@ const products = [
     stock: 50
   },
   {
-    name: '450ml Parfait',
-    price: 6000,
-    image: '450 ml parfait.jpeg',
+    name: '355ml Parfait',
+    price: 5000,
+    image: '355ml parfait.jpeg',
     description: 'Creamy yogurt, seasonal berries, and granola.',
     stock: 50
   },
   {
-    name: '355ml Parfait',
-    price: 5000,
-    image: '355ml parfait.jpeg',
+    name: '450ml Parfait',
+    price: 6000,
+    image: '450 ml parfait.jpeg',
     description: 'Creamy yogurt, seasonal berries, and granola.',
     stock: 50
   },
