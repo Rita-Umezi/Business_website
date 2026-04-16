@@ -47,6 +47,54 @@ const products = [
     image: 'pineapple.png',
     description: '100% natural cold-pressed juice.',
     stock: 60
+  },
+  {
+    _id: '7',
+    name: '500 ml Watermelon Juice',
+    price: 2500,
+    image: 'watermelon.jpeg',
+    description: '100% natural cold-pressed watermelon juice.',
+    stock: 50
+  },
+  {
+    _id: '8',
+    name: '500 ml Pineapple Juice',
+    price: 3000,
+    image: 'pineapple.jpeg',
+    description: '100% natural cold-pressed pineapple juice.',
+    stock: 50
+  },
+  {
+    _id: '9',
+    name: 'Ginger Shot',
+    price: 2000,
+    image: 'ginger.jpeg',
+    description: 'Fresh ginger shot.',
+    stock: 50
+  },
+  {
+    _id: '10',
+    name: '450ml Parfait',
+    price: 6000,
+    image: 'Parfait2.png',
+    description: 'Creamy yogurt, seasonal berries, and granola.',
+    stock: 50
+  },
+  {
+    _id: '11',
+    name: '355ml Parfait',
+    price: 5000,
+    image: 'Parfait2.png',
+    description: 'Creamy yogurt, seasonal berries, and granola.',
+    stock: 50
+  },
+  {
+    _id: '12',
+    name: '550ml Parfait',
+    price: 8000,
+    image: 'Parfait2.png',
+    description: 'Creamy yogurt, seasonal berries, and granola.',
+    stock: 50
   }
 ];
 
