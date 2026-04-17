@@ -18,6 +18,7 @@ const productRoutes = require('./routes/productRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const webhookRoutes = require('./routes/webhookRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
+const subscribeRoutes = require('./routes/subscribeRoutes');
 
 // Routes
 app.use('/api/admin', adminRoutes);
@@ -25,6 +26,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/webhooks', webhookRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/subscribe', subscribeRoutes);
 
 // Serve frontend files
 const path = require('path');

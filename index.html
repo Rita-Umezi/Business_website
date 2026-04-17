@@ -157,9 +157,10 @@
                 <h2 class="serif text-3xl mb-6">Rayblend Treats</h2>
                 <p class="text-gray-400 max-w-sm mb-6">Join our journey toward better health. Subscribe for health tips and special menu updates.</p>
                 <div class="flex gap-2">
-                    <input type="email" placeholder="Your Email" class="bg-white/10 border border-white/20 rounded-full px-6 py-3 flex-grow outline-none focus:border-orange-500">
-                    <button class="bg-orange-600 px-6 py-3 rounded-full font-bold">Join</button>
+                    <input type="email" id="newsletter-email" placeholder="Your Email" class="bg-white/10 border border-white/20 rounded-full px-6 py-3 flex-grow outline-none focus:border-orange-500">
+                    <button id="newsletter-btn" class="bg-orange-600 hover:bg-orange-700 px-6 py-3 rounded-full font-bold transition flex items-center justify-center min-w-[100px]">Join</button>
                 </div>
+                <div id="newsletter-message" class="mt-3 text-sm hidden font-semibold"></div>
             </div>
             <div>
                 <h4 class="font-bold mb-6">Contact</h4>
@@ -461,6 +462,71 @@
                 document.body.style.overflow = 'auto';
             }
         }
+
+        // Newsletter Subscription Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('newsletter-btn');
+            const emailInput = document.getElementById('newsletter-email');
+            const messageDiv = document.getElementById('newsletter-message');
+
+            if (btn && emailInput && messageDiv) {
+                btn.addEventListener('click', async () => {
+                    const email = emailInput.value.trim();
+                    if (!email) {
+                        showMessage('Please enter your email address.', 'text-red-400');
+                        return;
+                    }
+
+                    // Basic email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        showMessage('Please enter a valid email.', 'text-red-400');
+                        return;
+                    }
+
+                    // Disable button and show loading state
+                    const originalBtnText = btn.innerHTML;
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i>';
+                    btn.classList.add('opacity-75', 'cursor-not-allowed');
+
+                    try {
+                        const res = await fetch('/api/subscribe', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email })
+                        });
+                        const data = await res.json();
+
+                        if (res.ok && data.success) {
+                            showMessage(data.message || 'Successfully subscribed! 🎉', 'text-green-400');
+                            emailInput.value = ''; // clear input
+                        } else {
+                            showMessage(data.message || 'Error subscribing. Please try again.', 'text-red-400');
+                        }
+                    } catch (error) {
+                        console.error('Subscription error:', error);
+                        showMessage('Network error. Is the backend running?', 'text-red-400');
+                    } finally {
+                        // Reset button
+                        btn.disabled = false;
+                        btn.innerHTML = originalBtnText;
+                        btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                    }
+                });
+            }
+
+            function showMessage(msg, colorClass) {
+                messageDiv.className = `mt-3 text-sm font-semibold ${colorClass}`;
+                messageDiv.textContent = msg;
+                messageDiv.classList.remove('hidden');
+                
+                // Hide after 5 seconds
+                setTimeout(() => {
+                    messageDiv.classList.add('hidden');
+                }, 5000);
+            }
+        });
     </script>
 
     <!-- Floating WhatsApp Button -->
