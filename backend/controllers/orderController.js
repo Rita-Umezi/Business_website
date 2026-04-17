@@ -53,7 +53,7 @@ const checkout = async (req, res) => {
 
     // Initialize Paystack payment
     const paystackForm = {
-      email: email || 'customer@example.com', 
+      email: email || 'guest@rayskitchen.com', 
       amount: totalAmount * 100,
       metadata: {
         order_id: order._id
